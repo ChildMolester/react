@@ -1,8 +1,6 @@
 import React,{Component} from 'react';
+import './Timei.css';
 
-const ti = () => {
-	return new Date().toLocaleTimeString()
-}
 class Timei extends Component {
 	static propTypes = {
 		onStep:React.PropTypes.func
@@ -12,8 +10,7 @@ class Timei extends Component {
 	    super(props);
 	    this.state = {date: new Date()};
 	    this.interval = setInterval(() => {
-	    	var date = new Date();
-	    	this.setState({date});
+	    	this.setState({date:new Date()});
 	    },1000)
 	}
 
