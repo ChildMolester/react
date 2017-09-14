@@ -2,9 +2,9 @@ import React,{Component} from 'react';
 import './Timei.css';
 
 class Timei extends Component {
-	static propTypes = {
-		onStep:React.PropTypes.func
-	}
+	// static propTypes = {
+	// 	onStep:React.PropTypes.func
+	// }
 
 	constructor(props) {
 	    super(props);
@@ -14,10 +14,22 @@ class Timei extends Component {
 	    },1000)
 	}
 
+	componentDidMount(){
+
+	}
+
 	render(){
-		return (
-			<div>{this.state.date.toLocaleTimeString()}</div>
-		);
+		let son = this.props.isOn;
+		if(son){
+			return (
+				<div>{this.props.name}-{this.state.date.toLocaleTimeString()}</div>
+			);
+		}else{
+			return (
+				<div>时间-{this.state.date.toLocaleTimeString()}</div>
+			);
+		}
+		
 	}
 }
 

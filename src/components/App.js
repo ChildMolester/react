@@ -4,13 +4,16 @@ import './App.css';
 import Top from './Top/Top'
 import Jsxtl from './Jsxtl/Jsxtl'
 import Timei from './Timei/Timei'
+import Listmap from './Listmap/Listmap'
+import Sele from './Sele/Sele'
+import Stateup from './Stateup/Stateup'
+import Myecharts from './Myecharts/Myecharts'
 import {Route,NavLink} from 'react-router-dom'
 
 class App extends Component {
     constructor(props){
         super(props);
         this.state = {isToggleOn:true};
-
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -23,7 +26,7 @@ class App extends Component {
 
     componentDidMount(){
         fetch('/arr')
-        .then(res => {return res.json()})
+        .then(res => res.json())
         .then((json) => {
             console.log(json);
             this.setState({name: json.name})
@@ -32,6 +35,11 @@ class App extends Component {
             console.log(ex)
         })
     }
+
+    componentDidMount(){
+
+    }
+    
 
     render() {
         return (
@@ -44,13 +52,20 @@ class App extends Component {
                 <p className="App-intro">
                 To get started, edit{this.props.value} <code><NavLink to="/Jsxtl" activeClassName="active">src/App.js</NavLink></code> and save to reload.
                 </p>
-                <Timei color="red"/>
+                <Timei isOn={this.state.isToggleOn} name="时钟" color="red"/>
                 <main>
                     <Route color="red" exact path="/" component={Top}>                
                     </Route>
                     <Route path="/Jsxtl" component={Jsxtl}>                
                     </Route>
-                </main>         
+                    <Route path="/Myecharts" component={Myecharts}>                
+                    </Route>
+                </main> 
+                <Listmap/>     
+                <Sele/> 
+                <Stateup/>  
+                <Myecharts/>
+                <NavLink to="Myecharts">图表</NavLink>
             </div>
         );
     }
