@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {BrowserRouter,Route} from 'react-router-dom'
+import {HashRouter,Route} from 'react-router-dom'
 import './index.css';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render((
-	<BrowserRouter>
+	<HashRouter>
 		<div>			
 			<Route path="/" component={App}>								
 			</Route>	
 		</div>
-	</BrowserRouter>
+	</HashRouter>
 ), document.getElementById('root'));
 
 // ReactDOM.render(<App />, document.getElementById('root'));

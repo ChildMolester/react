@@ -8,12 +8,13 @@ import Listmap from './Listmap/Listmap'
 import Sele from './Sele/Sele'
 import Stateup from './Stateup/Stateup'
 import Myecharts from './Myecharts/Myecharts'
+import Actor from './Actor/Actor'
 import {Route,NavLink} from 'react-router-dom'
 
 class App extends Component {
     constructor(props){
         super(props);
-        this.state = {isToggleOn:true};
+        this.state = {isToggleOn:true,name:''};
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -35,12 +36,7 @@ class App extends Component {
             console.log(ex)
         })
     }
-
-    componentDidMount(){
-
-    }
     
-
     render() {
         return (
             <div className="App">
@@ -58,14 +54,18 @@ class App extends Component {
                     </Route>
                     <Route path="/Jsxtl" component={Jsxtl}>                
                     </Route>
+                    <Route path="/Actor" component={Actor}>                
+                    </Route>
                     <Route path="/Myecharts" component={Myecharts}>                
                     </Route>
                 </main> 
                 <Listmap/>     
                 <Sele/> 
                 <Stateup/>  
+                <Actor/>
                 <Myecharts/>
                 <NavLink to="Myecharts">图表</NavLink>
+                <NavLink to="Actor">人名</NavLink>
             </div>
         );
     }
